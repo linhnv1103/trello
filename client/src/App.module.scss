@@ -1,0 +1,94 @@
+@use './scss/variables' as *;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 40px 50px 1fr;
+  line-height: 1.3;
+  height: 100vh;
+  background-color: $main-color-light;
+}
+
+.nav {
+  padding-left: $gap;
+  display: flex;
+  align-items: center;
+
+  &.app {
+    background-color: $main-color-bold;
+    font-size: 20px;
+  }
+
+  &.board {
+    background-color: $main-color-light;
+    font-size: 16px;
+  }
+}
+
+.board-columns {
+  display: flex;
+  overflow-x: auto;
+
+  .column {
+    flex: 0 0 auto;
+    width: 300px;
+    > * {
+      background-color: $white;
+      color: #333;
+      padding: 0 8px;
+    }
+
+    header,
+    footer {
+      padding-left: 15px;
+      height: 36px;
+      line-height: 36px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    header {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    footer {
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      overflow-y: auto;
+
+      li {
+        background-color: #fff;
+        padding: $gap;
+        margin-bottom: $gap;
+        border-radius: 3px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+
+        &:not(:last-child) {
+          margin-bottom: $gap;
+        }
+
+        img {
+          display: block;
+          width: calc(100% + 2 * #{$gap});
+          margin: -10px 0 10px -10px;
+        }
+      }
+    }
+  }
+}
